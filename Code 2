@@ -32276,26 +32276,6 @@ if (e.noCounter == 16) {
                 campaignTrail_temp.questions_json[28] = tunnel(45195);
             }
            }
-		   final_win_list = Array.from(winningNumbers).concat(Array.from(winningNumbers2),Array.from(winningNumbers3),Array.from(winningNumbers4),Array.from(winningNumbers5));
-		   final_conservative_list = Array.from(conservativeNumbers).concat(Array.from(conservativeNumbers2),Array.from(conservativeNumbers3),Array.from(conservativeNumbers4),Array.from(conservativeNumbers5));
-		   final_populism_list = Array.from(populismNumbers).concat(Array.from(populismNumbers2),Array.from(populismNumbers3),Array.from(populismNumbers4),Array.from(populismNumbers5));
-		   final_list_secured = 1;
-		   
-			if (trigger_once == 0) {
-				console.log("Labels Added.");
-				for (let n = 0; n<campaignTrail_temp.answers_json.length; n++) {
-					if (final_populism_list.includes(campaignTrail_temp.answers_json[n].pk)) {
-						campaignTrail_temp.answers_json[n].fields.description = "(Populist) "+campaignTrail_temp.answers_json[n].fields.description;
-					}
-					if (final_conservative_list.includes(campaignTrail_temp.answers_json[n].pk)) {
-						campaignTrail_temp.answers_json[n].fields.description = "(Conservative) "+campaignTrail_temp.answers_json[n].fields.description;
-					}
-					if (final_win_list.includes(campaignTrail_temp.answers_json[n].pk)) {
-						campaignTrail_temp.answers_json[n].fields.description = "(Win) "+campaignTrail_temp.answers_json[n].fields.description;
-					}
-			   }
-			   trigger_once = 1;
-			}
 
         //Secret Endings
            //TakeTheHill- Trump Judges, Defend Charlottsville, Bossie & Corrie, Troops to Border, Egg On Impeachment, Insurrection, 
@@ -37904,4 +37884,51 @@ e.executable.push([2, (() => {e.image = e.image = 'https://i.imgur.com/Wxh2lGe.g
     applyTooltipsToObject(campaignTrail_temp.questions_json);
     applyTooltipsToObject(campaignTrail_temp.answers_json);
     applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);    
-	
+
+
+
+
+conservativeNumbers = new Set([42559, 43061, 43062, 43066, 43067, 43068, 43080, 43077, 43075, 42591, 42592, 43084, 43087]);
+populismNumbers = new Set([42558, 43060, 43063, 43064, 43065, 43078, 43069, 43081, 43074, 42561, 42593, 43083, 43086]);
+bigwinningNumbers = new Set([43068, 43077, 43078, 43084, 43086, 43386, 43389]);
+winningNumbers2 = new Set([43370, 43372, 43375, 43376]);
+conservativeNumbers2 = new Set([43367, 43371, 43372, 43373, 43376, 43380, 43379, 43381, 43385, 43389]);
+populismNumbers2 = new Set([43368, 43369, 43370, 43374, 43375, 43378, 43377, 43382, 43386, 43390]);
+winningNumbers3 = new Set([43692, 43695, 43699, 43700, 43753, 43768, 43770, 43773, 43774]);
+conservativeNumbers3 = new Set([43694, 43695, 43724, 43725, 43726, 43730, 43698, 43699, 43751, 43768, 43772]);
+populismNumbers3 = new Set([43692, 43693, 43696, 43728, 43729, 43731, 43697, 43700, 43752, 43753, 43769, 43770, 43773, 43774]);
+winningNumbers4 = new Set([43796, 43807, 43818, 43823, 43827, 43832, 43834, 43843, 43845, 43850, 43852, 43854]);
+conservativeNumbers4 = new Set([42518, 42517, 43798, 43800, 43807, 43809, 43816, 43818, 43825, 43827, 43834, 43836, 43843, 43845, 43852, 43854]);
+populismNumbers4 = new Set([42521, 42516, 43802, 43796, 43805, 43811, 43814, 43820, 43823, 43829, 43832, 43838, 43841, 43847, 43850, 43856]);
+winningNumbers5 = new Set([43728]);
+conservativeNumbers5 = new Set([43754, 43755, 43757, 43759]);
+populismNumbers5 = new Set([43756, 43760, 43761, 43762]);
+
+final_xeno_list = [43060,43065,43374,43375,43369,43731,42593];
+
+final_win_list = Array.from(winningNumbers).concat(Array.from(winningNumbers2),Array.from(winningNumbers3),Array.from(winningNumbers4),Array.from(winningNumbers5));
+final_conservative_list = Array.from(conservativeNumbers).concat(Array.from(conservativeNumbers2),Array.from(conservativeNumbers3),Array.from(conservativeNumbers4),Array.from(conservativeNumbers5));
+final_populism_list = Array.from(populismNumbers).concat(Array.from(populismNumbers2),Array.from(populismNumbers3),Array.from(populismNumbers4),Array.from(populismNumbers5));
+final_bigwin_list = Array.from(bigwinningNumbers);
+
+if (trigger_once == 0) {
+	console.log("Labels Added.");
+	for (let n = 0; n<campaignTrail_temp.answers_json.length; n++) {
+		if (final_populism_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Populist) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
+		if (final_conservative_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Conservative) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
+		if (final_win_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Win) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
+		if (final_bigwin_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Major Win) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
+		if (final_xeno_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Xeno) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
+   }
+   trigger_once = 1;
+}
