@@ -37903,6 +37903,11 @@ populismNumbers4 = new Set([42521, 42516, 43802, 43796, 43805, 43811, 43814, 438
 winningNumbers5 = new Set([43728]);
 conservativeNumbers5 = new Set([43754, 43755, 43757, 43759]);
 populismNumbers5 = new Set([43756, 43760, 43761, 43762]);
+OutragedNumbers = new Set([43376, 43374, 43761, 43760, 43731, 43728, 43725, 43774, 43770, 43753])
+OutragedNumbers2 = new Set([43373, 43757, 43751, 43730, 43768, 43772, 43796, 43807, 43818, 43823, 43827, 43832, 43834, 43843, 43845, 43850, 43852, 43854])
+ImpeachmentNumbers = new Set([43737, 43740, 43742, 43745, 43747, 43750]);
+ImpeachmentNumbers2 = new Set([43911, 43905, 43902, 43896, 43900, 43766, 43765, 43764, 43763]);
+
 
 final_xeno_list = [43060,43065,43374,43375,43369,43731,42593];
 
@@ -37910,10 +37915,19 @@ final_win_list = Array.from(winningNumbers).concat(Array.from(winningNumbers2),A
 final_conservative_list = Array.from(conservativeNumbers).concat(Array.from(conservativeNumbers2),Array.from(conservativeNumbers3),Array.from(conservativeNumbers4),Array.from(conservativeNumbers5));
 final_populism_list = Array.from(populismNumbers).concat(Array.from(populismNumbers2),Array.from(populismNumbers3),Array.from(populismNumbers4),Array.from(populismNumbers5));
 final_bigwin_list = Array.from(bigwinningNumbers);
+final_outrage_list = Array.from(OutragedNumbers).concat(Array.from(OutragedNumbers2));
+final_impeach_list = Array.from(ImpeachmentNumbers).concat(Array.from(ImpeachmentNumbers2));
+
 
 if (trigger_once == 0) {
 	console.log("Labels Added.");
 	for (let n = 0; n<campaignTrail_temp.answers_json.length; n++) {
+		if (final_impeach_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Impeach) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
+		if (final_outrage_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Outrage) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
 		if (final_populism_list.includes(campaignTrail_temp.answers_json[n].pk)) {
 			campaignTrail_temp.answers_json[n].fields.description = "(Populist) "+campaignTrail_temp.answers_json[n].fields.description;
 		}
