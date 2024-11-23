@@ -37911,7 +37911,8 @@ ImpeachmentNumbers2 = new Set([43911, 43905, 43902, 43896, 43900, 43766, 43765, 
 
 final_xeno_list = [43060,43065,43374,43375,43369,43731,42593];
 
-final_win_list = Array.from(winningNumbers).concat(Array.from(winningNumbers2),Array.from(winningNumbers3),Array.from(winningNumbers4),Array.from(winningNumbers5));
+final_win_list = Array.from(winningNumbers).concat(Array.from(winningNumbers2),Array.from(winningNumbers3),Array.from(winningNumbers4));
+final_win2_list = Array.from(winningNumbers5);
 final_conservative_list = Array.from(conservativeNumbers).concat(Array.from(conservativeNumbers2),Array.from(conservativeNumbers3),Array.from(conservativeNumbers4),Array.from(conservativeNumbers5));
 final_populism_list = Array.from(populismNumbers).concat(Array.from(populismNumbers2),Array.from(populismNumbers3),Array.from(populismNumbers4),Array.from(populismNumbers5));
 final_bigwin_list = Array.from(bigwinningNumbers);
@@ -37939,7 +37940,10 @@ if (trigger_once == 0) {
 			campaignTrail_temp.answers_json[n].fields.description = "(Conservative) "+campaignTrail_temp.answers_json[n].fields.description;
 		}
 		if (final_win_list.includes(campaignTrail_temp.answers_json[n].pk)) {
-			campaignTrail_temp.answers_json[n].fields.description = "(Win) "+campaignTrail_temp.answers_json[n].fields.description;
+			campaignTrail_temp.answers_json[n].fields.description = "(+1 Win) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
+		if (final_win2_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(-1 Win) "+campaignTrail_temp.answers_json[n].fields.description;
 		}
 		if (final_bigwin_list.includes(campaignTrail_temp.answers_json[n].pk)) {
 			campaignTrail_temp.answers_json[n].fields.description = "(Major Win) "+campaignTrail_temp.answers_json[n].fields.description;
