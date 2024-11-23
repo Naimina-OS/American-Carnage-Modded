@@ -37915,7 +37915,8 @@ final_win_list = Array.from(winningNumbers).concat(Array.from(winningNumbers2),A
 final_conservative_list = Array.from(conservativeNumbers).concat(Array.from(conservativeNumbers2),Array.from(conservativeNumbers3),Array.from(conservativeNumbers4),Array.from(conservativeNumbers5));
 final_populism_list = Array.from(populismNumbers).concat(Array.from(populismNumbers2),Array.from(populismNumbers3),Array.from(populismNumbers4),Array.from(populismNumbers5));
 final_bigwin_list = Array.from(bigwinningNumbers);
-final_outrage_list = Array.from(OutragedNumbers).concat(Array.from(OutragedNumbers2));
+final_outrage_list = Array.from(OutragedNumbers);
+final_outrage2_list = Array.from(OutragedNumbers2);
 final_impeach_list = Array.from(ImpeachmentNumbers).concat(Array.from(ImpeachmentNumbers2));
 
 
@@ -37925,8 +37926,11 @@ if (trigger_once == 0) {
 		if (final_impeach_list.includes(campaignTrail_temp.answers_json[n].pk)) {
 			campaignTrail_temp.answers_json[n].fields.description = "(Impeach) "+campaignTrail_temp.answers_json[n].fields.description;
 		}
+		if (final_outrage2_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(-1 Outrage) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
 		if (final_outrage_list.includes(campaignTrail_temp.answers_json[n].pk)) {
-			campaignTrail_temp.answers_json[n].fields.description = "(Outrage) "+campaignTrail_temp.answers_json[n].fields.description;
+			campaignTrail_temp.answers_json[n].fields.description = "(+1 Outrage) "+campaignTrail_temp.answers_json[n].fields.description;
 		}
 		if (final_populism_list.includes(campaignTrail_temp.answers_json[n].pk)) {
 			campaignTrail_temp.answers_json[n].fields.description = "(Populist) "+campaignTrail_temp.answers_json[n].fields.description;
