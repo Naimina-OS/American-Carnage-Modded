@@ -37919,11 +37919,15 @@ final_bigwin_list = Array.from(bigwinningNumbers);
 final_outrage_list = Array.from(OutragedNumbers);
 final_outrage2_list = Array.from(OutragedNumbers2);
 final_impeach_list = Array.from(ImpeachmentNumbers).concat(Array.from(ImpeachmentNumbers2));
+final_trade_war_list = [43370,43378,43379,43697];
 
 
 if (trigger_once == 0) {
 	console.log("Labels Added.");
 	for (let n = 0; n<campaignTrail_temp.answers_json.length; n++) {
+		if (final_trade_war_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Trade War) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
 		if (final_impeach_list.includes(campaignTrail_temp.answers_json[n].pk)) {
 			campaignTrail_temp.answers_json[n].fields.description = "(Impeach) "+campaignTrail_temp.answers_json[n].fields.description;
 		}
