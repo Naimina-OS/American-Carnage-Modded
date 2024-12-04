@@ -37920,11 +37920,19 @@ final_outrage_list = Array.from(OutragedNumbers);
 final_outrage2_list = Array.from(OutragedNumbers2);
 final_impeach_list = Array.from(ImpeachmentNumbers).concat(Array.from(ImpeachmentNumbers2));
 final_trade_war_list = [43370,43378,43379,43697];
+final_econpop_list = [43386,43064,43370,43377,43761,43378,43697];
+final_hawk_list = [43367,43060,43061,43065,43369,43372,43724,43698,43726,43731,43754,43755];
 
 
 if (trigger_once == 0) {
 	console.log("Labels Added.");
 	for (let n = 0; n<campaignTrail_temp.answers_json.length; n++) {
+		if (final_trade_war_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Hawk) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
+		if (final_trade_war_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+			campaignTrail_temp.answers_json[n].fields.description = "(Econ Pop) "+campaignTrail_temp.answers_json[n].fields.description;
+		}
 		if (final_trade_war_list.includes(campaignTrail_temp.answers_json[n].pk)) {
 			campaignTrail_temp.answers_json[n].fields.description = "(Trade War) "+campaignTrail_temp.answers_json[n].fields.description;
 		}
