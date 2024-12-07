@@ -37927,7 +37927,7 @@ final_hawk_list = [43367,43060,43061,43065,43369,43372,43724,43698,43726,43731,4
 if (trigger_once == 0) {
 	console.log("Labels Added.");
 	for (let n = 0; n<campaignTrail_temp.answers_json.length; n++) {
-		if (final_trade_war_list.includes(campaignTrail_temp.answers_json[n].pk)) {
+		if (final_hawk_list.includes(campaignTrail_temp.answers_json[n].pk)) {
 			campaignTrail_temp.answers_json[n].fields.description = "(Hawk) "+campaignTrail_temp.answers_json[n].fields.description;
 		}
 		if (final_trade_war_list.includes(campaignTrail_temp.answers_json[n].pk)) {
